@@ -38,12 +38,12 @@ function defaultDatos(){
 	$('#initialF3').val('function(x,y,z){ return (y*y)+(z*z)-6 }');
 }
 function resetDatos(){
-	/* Obteniendo matriz Xo */
+	/* reseteando matriz Xo */
 	var initialVar = document.forms.initialVar.children;
 	[].forEach.call(initialVar,function(i,index){
 		i.children[1].value = "";
 	});
-	/* Obteniendo matriz de funciones */
+	/* reseteando matriz de funciones */
 	var initialFun = document.forms.initialFun.children;
 	[].forEach.call(initialFun,function(i,index){
 		i.children[1].value = "";
