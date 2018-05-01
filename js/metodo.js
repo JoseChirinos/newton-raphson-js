@@ -4,7 +4,7 @@ var datos = {
 	xi:  [],
 	fi:  [],
 	h:   0.001,
-	tam: {n:3,m:3}
+	tam: {n:2,m:2}
 };
 function initialEvents(){
 	$('#btnCalcular').click(function(){
@@ -31,11 +31,9 @@ function initialEvents(){
 /* Funciones */
 function defaultDatos(){
 	$('#initialX').val('1');
-	$('#initialY').val('3');
-	$('#initialZ').val('0.5');
-	$('#initialF1').val('function(x,y,z){ return (x*x)-(2*y)+(x*z)+2 }');
-	$('#initialF2').val('function(x,y,z){ return (x*y*z)+(2*z)-3 }');
-	$('#initialF3').val('function(x,y,z){ return (y*y)+(z*z)-6 }');
+	$('#initialY').val('2');
+	$('#initialF1').val('function(x1,x2){ return 2*(x1*x1)-x1*x2+x2-10 }');
+	$('#initialF2').val('function(x1,x2){ return x1+2*x2+(x2*x2)-6 }');
 }
 function resetDatos(){
 	/* reseteando matriz Xo */
@@ -53,7 +51,7 @@ function resetDatos(){
 		xi:  [],
 		fi:  [],
 		h:   0.001,
-		tam: {n:3,m:3}
+		tam: {n:2,m:2}
 	};
 }
 function init(){
@@ -100,9 +98,8 @@ function derivada(index_fun,index_xi){
 		n++;
 		x = x+h;
 		switch(index_xi){
-			case 0: fi1 = fun(x,datos.xi[1],datos.xi[2]);break;
-			case 1: fi1 = fun(datos.xi[0],x,datos.xi[2]);break;
-			case 2: fi1 = fun(datos.xi[0],datos.xi[1],x);break;
+			case 0: fi1 = fun(x,datos.xi[0],datos.xi[1]);break;
+			case 1: fi1 = fun(datos.xi[0],x,datos.xi[1]);break;
 			default:break;
 		}
 		d = (fi1 - fi)/h;
